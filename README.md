@@ -23,6 +23,10 @@ kubectl -n kube-system exec svc/ovn-nb -- ovn-nbctl lrp-get-gateway-chassis bfd@
 # 查看端口绑定信息
 kubectl ko sbctl find Port_Binding name=<你的LRP端口名称>
 
+```bash
+kubectl -n kube-system exec svc/ovn-sb -- ovn-sbctl find Port_Binding name=cr-bfd@ovn-cluster
+```
+
 在输出结果中，重点看 chassis 这一项：
 
 * 如果显示的 Chassis ID 确实对应你当前这台虚拟机的机器名，那它才是真正的 Active。
