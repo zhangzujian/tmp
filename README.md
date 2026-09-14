@@ -9,6 +9,10 @@ kubectl ko nbctl show
 # 或者是查看具体逻辑路由器的网关底座状态
 kubectl ko nbctl lrp-get-gateway-chassis <你的LRP名称>
 
+```bash
+kubectl -n kube-system exec svc/ovn-nb -- ovn-nbctl lrp-get-gateway-chassis bfd@ovn-cluster
+```
+
 
 * 如何分辨：输出结果会明确列出该 LRP 绑定在哪些 Chassis（节点）上，并且会用 name 和 priority 标明顺序。如果节点当前处理活跃状态，会直接有状态标识，或者其 priority 最高。
 
