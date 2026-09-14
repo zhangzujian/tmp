@@ -120,3 +120,8 @@ ovs-appctl -t ovn-controller vlog/set pinctrl:dbg
 - CoPP 主动丢包；
 - `ovn-controller` CPU 或 OpenFlow 连接消费阻塞；
 - 非 BFD packet-in 风暴。
+
+
+
+
+kubectl -n kube-system exec svc/ovn-sb -- ovn-sbctl list bfd | grep status
